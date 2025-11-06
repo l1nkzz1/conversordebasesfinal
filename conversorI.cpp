@@ -70,6 +70,7 @@ int main() {
 
     cout << "Conversor de Bases Numericas (2 a 16)\n";
 
+  // Base de entrada de 2 até 16
   do{
     cout << "Digite a base de origem (2 a 16): ";
     cin >> base_origem;
@@ -79,18 +80,20 @@ int main() {
   }while(base_origem < 2 || base_origem > 16);
 
 
+  // Usuario informa o valor para ser convertido
 informar_base:
     cout << "Digite o numero na base " << base_origem << ": ";
     cin >> numero_str;
 
    long long decimal = para_decimal(numero_str, base_origem);
 
+  // valida se o valor informado condiz com a base escolhida
     if (decimal == -1) {
       cerr << "Erro: O numero digitado contem digitos invalidos para a base " << base_origem << ".\n";
     goto informar_base;
     }
 
-
+ // Base de saida de 2 até 16
   do{
     cout << "Digite a base de destino (2 a 16): ";
     cin >> base_destino;
