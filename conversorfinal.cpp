@@ -37,17 +37,16 @@ unsigned long long para_decimal(string numero_str, int base_origem) {
         int valor = valor_do_digito(digito_char);
 
         if (valor == -1 || valor >= base_origem) {
-             // Retornar 0 ou lançar exceção é melhor para unsigned, 
-             // mas manteremos o padrão para esta implementação.
+             // Retornar 0 ou lançar exceção é melhor para unsigned
             
-             return 0; // Se houver erro, a main() deve verificar a string vazia ou usar um flag
+             return 0; // main retorna string vazia
         }
         
-        // CORREÇÃO: Usa multiplicação progressiva para evitar erros de ponto flutuante (pow/round)
+        // Nesse caso usar multiplicação progressiva para evitar erros de ponto flutuante (pow/round)
         decimal += (unsigned long long)valor * peso_potencia;
         
         // Atualiza o peso_potencia
-        if (i > 0) { // Evita multiplicação desnecessária na última iteração
+        if (i > 0) {
             peso_potencia *= base_origem; 
       }
     }
@@ -129,3 +128,4 @@ do{
 
     return 0;
 }
+
